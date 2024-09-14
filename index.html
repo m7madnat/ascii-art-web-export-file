@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ASCII Art Generator</title>
+    <link rel="stylesheet" href="templates/style.css">
+</head>
+
+<body>
+    <h1>ASCII Art Generator</h1>
+    <form action="/ascii" method="post">
+        <div>
+            <label for="text">Text:</label>
+            <textarea id="text" name="text" rows="4" cols="50" required></textarea>
+        </div>
+        <div class="secDiv">
+            <label for="standard">Standard
+                <input type="radio" id="standard" name="banner_style" value="standard" required>
+            </label>
+            <label for="shadow">Shadow
+                <input type="radio" id="shadow" name="banner_style" value="shadow" required>
+            </label>
+            <label for="thinkertoy">Thinkertoy
+                <input type="radio" id="thinkertoy" name="banner_style" value="thinkertoy" required>
+            </label>
+        </div>
+        <div>
+            <button type="submit">Generate ASCII Art</button>
+        </div>
+
+    </form>
+    <center>
+        {{ if . }}
+        <h2>ASCII Art Result</h2>
+        <textarea id="pre" readonly>{{ . }}</textarea>
+        <div>
+            <a href="/export?result={{.}}" download="ascii_art.txt"><button type="submit">Download ASCII
+                    Art</button></a>
+        </div>
+        {{ end }}
+    </center>
+</body>
+
+
+</html>
